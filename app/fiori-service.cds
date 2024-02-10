@@ -10,3 +10,14 @@ annotate CatalogService.Securities with @(
     ]
   }
 );
+
+
+
+annotate CatalogService.Quotes with @(
+  UI: {
+    LineItem: [
+      {Value: Date},
+      {Value: Close},
+    ]
+  }
+);
