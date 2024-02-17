@@ -2,15 +2,15 @@ using { cuid } from '@sap/cds/common';
 namespace portfolio;
 
 entity Securities {
-  key ISIN: String(20);
-  WKN: String(10);
-  Ticker: String(10);
-  Name: String(100);
-  Currency: String(3);
+  key ISIN: String;
+  WKN: String;
+  Ticker: String;
+  Name: String;
+  Currency: String;
 }
 
 entity Quotes {
-  key ISIN: String(20);
+  key ISIN: String;
   key Date: Date;
   Close: Decimal;
 }
