@@ -8,11 +8,12 @@ entity Securities {
   ticker: String;
   name: String;
   currency: String;
+  Quotes: Composition of many Quotes on Quotes.security = $self;
 }
 
 
 entity Quotes {
-  key isin: String;
+  key security: Association to Securities;
   key date: Date;
   close: Decimal;
 }
