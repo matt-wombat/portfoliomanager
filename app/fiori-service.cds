@@ -2,13 +2,13 @@ using { portfolio as my } from '../db/schema';
 
 annotate my.Securities with @(
   UI: {
-    SelectionFields: [ ISIN, WKN, Ticker, Name ],
+    SelectionFields: [ isin, wkn, ticker, name ],
     LineItem: [
-      {Value: ISIN},
-      {Value: WKN},
-      {Value: Ticker},
-      {Value: Name},
-      {Value: Currency},
+      {Value: isin},
+      {Value: wkn},
+      {Value: ticker},
+      {Value: name},
+      {Value: currency},
     ]
   }
 );
@@ -18,8 +18,8 @@ annotate my.Securities with @(
 annotate my.Quotes with @(
   UI: {
     LineItem: [
-      {Value: Date},
-      {Value: Close},
+      {Value: date},
+      {Value: close},
     ]
   }
 );
