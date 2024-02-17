@@ -1,4 +1,6 @@
-annotate CatalogService.Securities with @(
+using { portfolio as my } from '../db/schema';
+
+annotate my.Securities with @(
   UI: {
     SelectionFields: [ ISIN, WKN, Ticker, Name ],
     LineItem: [
@@ -13,7 +15,7 @@ annotate CatalogService.Securities with @(
 
 
 
-annotate CatalogService.Quotes with @(
+annotate my.Quotes with @(
   UI: {
     LineItem: [
       {Value: Date},
