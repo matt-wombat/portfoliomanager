@@ -1,0 +1,30 @@
+###
+# @name QuerySecurities
+GET http://localhost:4004/odata/v4/catalog/Securities
+
+### 
+# @name CreateNewSecurity
+POST http://localhost:4004/odata/v4/catalog/Securities
+Content-Type: application/json
+
+{
+  "ISIN": "JP3756600007",
+  "WKN": "864009",
+  "Ticker": "NTO.F",
+  "Name": "Nintendo",
+  "Currency": "EUR"
+}
+
+### 
+# @name QuerySecuritiesAgain
+GET http://localhost:4004/odata/v4/catalog/Securities
+
+@security_ISIN = {{ QuerySecuritiesAgain.response.body.value[1].ISIN }}
+
+### 
+# @name ReadSpecificSecurityEntity
+GET http://localhost:4004/odata/v4/catalog/Securities('{{security_ISIN}}')
+
+### 
+# @name DeleteSpecificBookEntity
+DELETE http://localhost:4004/odata/v4/catalog/Securities('{{security_ISIN}}')
