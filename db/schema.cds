@@ -11,12 +11,21 @@ entity Securities {
   Quotes: Composition of many Quotes on Quotes.security = $self;
 }
 
-
 entity Quotes {
   key security: Association to Securities;
   key date: Date;
   close: Decimal;
 }
 
+entity Depots {
+  key id: Integer;
+  name: String;
+}
 
+entity Inventories {
+  key depot_id: Integer;
+  key isin: String;
+  inventory: Decimal;
+  value: Decimal;
+}
 
