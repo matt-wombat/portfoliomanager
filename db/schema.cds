@@ -1,18 +1,19 @@
-// using { cuid } from '@sap/cds/common';
+using { cuid, Currency, Country } from '@sap/cds/common';
 
 namespace portfolio;
 
 entity Securities {
-  key isin: String;
-  wkn: String;
-  ticker: String;
-  name: String;
-  currency: String;
-  Quotes: Composition of many Quotes on Quotes.security = $self;
+  key isin: String(20);
+  wkn: String(10);
+  ticker: String(10);
+  name: String(30);
+  currency: Currency;
+  country: Country;
+  // Quotes: Composition of many Quotes on Quotes.security = $self;
 }
 
 entity Quotes {
-  key security: Association to Securities;
+  key isin: String;
   key date: Date;
   close: Decimal;
 }

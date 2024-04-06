@@ -9,7 +9,7 @@ annotate my.Securities with @(
     SelectionFields: [ isin, wkn, ticker, name ],
     HeaderInfo       : {
       TypeName       : 'Security',
-      TypeNamePlural : 'Securitiess',
+      TypeNamePlural : 'Securities',
       Title          : { Value : name}
     },
     Facets           : [
@@ -20,14 +20,15 @@ annotate my.Securities with @(
       {Value : wkn},
       {Value : ticker},
       {Value : name},
-      {Value : currency}
+      {Value : currency_code}
     ]},
     LineItem: [
       {Value: isin},
       {Value: wkn},
       {Value: ticker},
       {Value: name},
-      {Value: currency},
+      {Value: currency_code},
+      {Value: country_code}
     ]
   }
 );
