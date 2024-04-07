@@ -2,10 +2,13 @@ using { cuid, Currency, Country } from '@sap/cds/common';
 
 namespace portfolio;
 
+type ISIN: String(20);
+type Ticker: String(10);
+
 entity Securities {
-  key isin: String(20);
+  key isin: ISIN;
   wkn: String(10);
-  ticker: String(10);
+  ticker: Ticker;
   name: String(30);
   currency: Currency;
   country: Country;
@@ -13,7 +16,7 @@ entity Securities {
 }
 
 entity Quotes {
-  key isin: String;
+  key isin: ISIN;
   key date: Date;
   close: Decimal;
 }
@@ -25,8 +28,37 @@ entity Depots {
 
 entity Inventories {
   key depot_id: Integer;
-  key isin: String;
+  key isin: ISIN;
   inventory: Decimal;
   value: Decimal;
 }
 
+entity Balancesheets: cuid {
+  filing: Association to Filings;
+  valuetype: Association to Valuetypes;
+  value: Decimal;
+}
+
+entity Filings: cuid {
+  isin: ISIN;
+  ticker: Ticker;
+  date: Date;
+  balancesheettype: String; // Quarterly, Yearly
+}
+
+entity Valuetypes: cuid {
+  position: Integer;
+  section: String;
+  name: String;
+}
+
+entity Reportcards: cuid {
+  isin: ISIN;
+  ticker: Ticker;
+  date: Date;
+  price: Decimal;
+  shares: Decimal; // in 1,000s
+  cash: Decimal; // in 1,000s
+  debt: Decimal; // in 1,000s
+  enterprise_value: Decimal; // in 1,000s
+}
