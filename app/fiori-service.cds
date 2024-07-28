@@ -36,6 +36,7 @@ annotate my.Securities with @(
 annotate my.Quotes with @(
   UI: {
     LineItem: [
+      {Value: isin},
       {Value: date},
       {Value: close},
     ]
