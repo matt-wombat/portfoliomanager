@@ -5,18 +5,18 @@ namespace portfolio;
 type ISIN: String(20);
 type Ticker: String(10);
 
-entity Securities {
+entity Stocks {
   key isin: ISIN;
   wkn: String(10);
   ticker: Ticker;
   name: String(30);
   currency: Currency;
   country: Country;
-  // Quotes: Composition of many Quotes on Quotes.security = $self;
+  quotes: Association to many Quotes on quotes.stock = $self;
 }
 
 entity Quotes {
-  key isin: ISIN;
+  key stock: Association to Stocks;
   key date: Date;
   close: Decimal;
 }

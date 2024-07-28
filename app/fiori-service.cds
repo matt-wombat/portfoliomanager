@@ -1,10 +1,10 @@
-using { portfolio as my } from '../db/schema';
+using { portfolio } from '../db/schema';
 
 // For more annotation examples see:
 //
 // https://cap.cloud.sap/docs/guides/extensibility/customization#extending-ui-annotations
 
-annotate my.Securities with @(
+annotate portfolio.Stocks with @(
   UI: {
     SelectionFields: [ isin, wkn, ticker, name ],
     HeaderInfo       : {
@@ -33,7 +33,7 @@ annotate my.Securities with @(
   }
 );
 
-annotate my.Quotes with @(
+annotate portfolio.Quotes with @(
   UI: {
     LineItem: [
       {Value: isin},

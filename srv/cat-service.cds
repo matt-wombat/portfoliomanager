@@ -1,9 +1,9 @@
-using { portfolio as my } from '../db/schema';
+using { portfolio } from '../db/schema';
 
 service CatalogService {
-  entity Securities as projection on my.Securities;
-  entity Quotes as projection on my.Quotes;
-  entity Depots as projection on my.Depots;
-  entity Inventories as projection on my.Inventories;
+  entity Stocks as projection on portfolio.Stocks;
+  entity Quotes as projection on portfolio.Quotes;
+  entity Depots as projection on portfolio.Depots;
+  entity Inventories as projection on portfolio.Inventories;
 
 }
