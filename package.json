@@ -20,15 +20,5 @@
   },
   "imports": {
     "#cds-models/*": "./@cds-models/*/index.js"
-  },
-  "cds": {
-    "requires": {
-      "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "url": "portfoliomanager.sqlite"
-        }
-      }
-    }
   }
 }

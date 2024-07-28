@@ -13,11 +13,6 @@ File or Folder | Purpose
 `readme.md` | this getting started guide
 
 
-## Preparation
-
-- Put SQLite database named _portfoliomanager.sqlite_ into root directory
-- If file not aviailable build one first by running in the terminal: `cds deploy --to sqlite:portfoliomanager.sqlite`
-
 ## Start
 
 - Open a new terminal and run `cds watch` or `cds w` 
