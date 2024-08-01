@@ -10,15 +10,20 @@
     "express": "^4"
   },
   "devDependencies": {
+    "@cap-js/cds-typer": ">=0.1",
     "@cap-js/sqlite": "^1",
     "@sap/eslint-plugin-cds": "^2.6.5",
-    "eslint": "^8.56.0",
-    "@cap-js/cds-typer": ">=0.1"
+    "@sap/ux-specification": "^1.120.15",
+    "eslint": "^8.56.0"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-stocks": "cds watch --open stocks/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "imports": {
     "#cds-models/*": "./@cds-models/*/index.js"
-  }
+  },
+  "sapux": [
+    "app/stocks"
+  ]
 }
