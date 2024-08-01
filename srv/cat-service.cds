@@ -1,5 +1,7 @@
 using { portfolio } from '../db/schema';
 
+annotate CatalogService.Stocks with @odata.draft.enabled;
+
 service CatalogService {
   entity Stocks as projection on portfolio.Stocks;
   entity Quotes as projection on portfolio.Quotes;
@@ -7,3 +9,4 @@ service CatalogService {
   entity Inventories as projection on portfolio.Inventories;
 
 }
+
