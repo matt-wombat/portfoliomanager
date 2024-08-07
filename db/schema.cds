@@ -4,19 +4,36 @@ namespace portfolio;
 
 type ISIN: String(20);
 type Ticker: String(10);
+type Name: String(50);
+
+entity Companies {
+  key company: String(30);
+  name: Name;
+
+}
+
+entity Exchanges {
+  key mic: String(10);
+  name: Name;
+  country: Country;
+}
 
 entity Stocks {
   key isin: ISIN;
   wkn: String(10);
-  ticker: Ticker;
-  name: String(30);
+  tickers: Association to many Tickers on tickers.stock = $self;
+}
+
+entity Tickers {
+  key code: Ticker;
+  stock: Association to Stocks;
+  exchange: Association to Exchanges;
   currency: Currency;
-  country: Country;
-  quotes: Association to many Quotes on quotes.stock = $self;
+  quotes: Association to many Quotes on quotes.ticker = $self;
 }
 
 entity Quotes {
-  key stock: Association to Stocks;
+  key ticker: Association to Tickers;
   key date: Date;
   close: Decimal;
 }
