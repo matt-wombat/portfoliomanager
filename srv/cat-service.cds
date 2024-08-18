@@ -7,6 +7,8 @@ service CatalogService {
   entity Quotes as projection on portfolio.Quotes;
   entity Depots as projection on portfolio.Depots;
   entity Inventories as projection on portfolio.Inventories;
+  entity Companies as projection on portfolio.Companies;
+  entity Tickers as projection on portfolio.Tickers;
 
 }
 
