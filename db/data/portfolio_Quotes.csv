@@ -1,4 +1,4 @@
-stock_isin;Date;Close
+ticker_code;date;close
 US5949181045;2000-01-03;111.5
 US5949181045;2000-01-04;112
 US5949181045;2000-01-05;107.5
