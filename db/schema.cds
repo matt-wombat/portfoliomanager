@@ -9,6 +9,7 @@ type Name: String(50);
 entity Companies {
   key company: String(30);
   name: Name;
+  country: Country;
 
 }
 
